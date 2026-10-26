@@ -1,0 +1,14 @@
+#Ye kya karega? Frontend aur Kubernetes
+# ke doosre components ko backend tak pahunchne ke liye ek stable internal address dega.
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecommerce-backend
+spec:
+  selector:
+    app: ecommerce-backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: ClusterIP

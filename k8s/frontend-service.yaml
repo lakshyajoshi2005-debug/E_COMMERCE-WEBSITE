@@ -1,0 +1,15 @@
+#Ye kya karega? Frontend ke liye Kubernetes 
+#Service banayega, jisse hum browser se React app access karne ki configuration kar sakte hain.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecommerce-frontend
+spec:
+  selector:
+    app: ecommerce-frontend
+  ports:
+    - protocol: TCP
+      port: 5173
+      targetPort: 5173
+  type: NodePort

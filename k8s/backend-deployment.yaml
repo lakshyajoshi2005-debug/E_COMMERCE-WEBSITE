@@ -1,0 +1,22 @@
+#Ye kya karega? Kubernetes ko batayega ki 
+#Django backend ka ek instance run karna hai, Docker image se.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecommerce-backend
+  template:
+    metadata:
+      labels:
+        app: ecommerce-backend
+    spec:
+      containers:
+        - name: backend
+          image: ecommerce-backend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
